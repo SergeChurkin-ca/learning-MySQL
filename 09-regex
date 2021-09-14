@@ -1,0 +1,8 @@
+// Query the list of CITY names ending with vowels (a, e, i, o, u) 
+
+SELECT DISTINCT CITY from STATION
+WHERE CITY REGEXP('[aeiou]$');
+
+// Query the list of CITY names starting with vowels (a, e, i, o, u) 
+SELECT DISTINCT CITY from STATION
+WHERE CITY REGEXP('^[aeiou]');
