@@ -11,7 +11,7 @@ GROUP BY ReportsTo ORDER BY ReportsTo;
 + ----------------+-----------+------------ +
 | Bob Boss        |  2        | 24          |
 | Daniel Smith    |  1        | 22          |
-| David S	        |  1        | 25          |
+| David S         |  1        | 25          |
 | Jenny Richards  |  2        | 32          |
 + ----------------+-----------+------------ +
 
