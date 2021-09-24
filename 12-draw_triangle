@@ -1,0 +1,11 @@
+SET @TEMP:=21; 
+SELECT REPEAT('* ', @TEMP:= @TEMP - 1) 
+FROM INFORMATION_SCHEMA.TABLES;
+
+-- INFORMATION_SCHEMA.TABLES works as dummy table when there's no table to select
+
+-- * * * * * 
+-- * * * * 
+-- * * * 
+-- * * 
+-- *
