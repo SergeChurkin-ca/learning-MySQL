@@ -56,6 +56,35 @@ connection.query('INSERT INTO users SET ?', fekerPerson, function(err, result) {
 })
 
 
+// 5 - insert users in bulk 
+
+var data = [
+    ['userawseom@yahoo.com', '2017-12-12 10:59:00'],
+    ['userawesome1@yahoo.com', '2017-12-12 10:59:00'],
+    ['userawesome2@yahoo.com', '2017-12-12 10:59:00']
+]
+
+var q = "INSERT INTO users (email, created_at) VALUES ?"
+connection.query(q, [data], function(err, result) {
+    if (err) throw err;
+    console.log(result)
+})
+
+// 6 - insert 500 users in bulk with library
+
+var data = [];
+
+for (let i = 0; i <= 500; i++) {
+    data.push([faker.internet.email(), faker.date.past()]);
+}
+
+var q = "INSERT INTO users (email, created_at) VALUES ?"
+
+connection.query(q, [data], function(err, result) {
+    console.log(err)
+})
+
+
 connection.end((err) => {
     if (err) {
         console.log('Error closing conenction')
