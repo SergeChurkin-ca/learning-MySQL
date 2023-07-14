@@ -1,0 +1,36 @@
+var express = require('express');
+var app = express();
+var mysql = require('mysql');
+
+var connection = mysql.createConnection({
+    host: 'hostname.ca',
+    user: 'adminorsomething',
+    password: '********',
+    database: 'databasename_db'
+});
+
+app.get('/', function(req, res) {
+    var q = "SELECT count(*) as count from users";
+    connection.query(q, (err, result) => {
+        if (err) throw err;
+        var count = result[0].count;
+        res.send(`We have ${count} users in our db`)
+    })
+})
+
+
+app.get("/testroutepage", function(req, res) {
+    var htmlContent = `
+    <p>Test page </p>
+    <br><br>
+    <p>menu</p>
+     <li><a href="/testroutepage">joke</a></li>
+    <li><a href="/">home</a></li>
+    `
+    console.log("requested joke route")
+    res.send(htmlContent);
+})
+
+app.listen(8888, function() {
+    console.log('Server is running on port 8888')
+});
