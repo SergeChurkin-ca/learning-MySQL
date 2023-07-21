@@ -1,0 +1,21 @@
+// form in view directory .ejs
+
+<h1>Join Us</h1>
+
+// data count relates to count query in get request 
+<p class="lead">Enter your email to join <strong><%=datacount%></strong> others on our waitlist. We are 100% not a cult</p>
+
+<form action="/register" method="POST">
+
+    <label for="email">Email</label>
+    <input type="email" name="email" class="form-control" required placeholder="Enter Your Email">
+    
+    <label for="first_name">First Name</label>
+    <input type="text" name="first_name" class="form-control" required placeholder="First Name">
+    
+    <label for="last_name">Last Name</label>
+    <input type="text" name="last_name" class="form-control" required placeholder="Last Name">
+    
+    <button>Join Now</button>
+    
+</form>
