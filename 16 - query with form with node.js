@@ -9,8 +9,12 @@ var bodyParser = require('body-parser')
 app.set("view engine", "ejs")
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// this was comes from form is stored with body-parser
+// make sure middlewarwe static will have this and directory is the same as app.js directory to serve static .css
+// view .ejs tempales will have .css links and they will work
 
+app.use(express.static(__dirname + "/static"));
+
+// this was comes from form is stored with body-parser
 
 var connection = mysql.createConnection({
     host: '********',
